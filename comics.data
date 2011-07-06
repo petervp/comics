@@ -1,0 +1,27 @@
+drop database if exists comicstore;
+create database comicstore;
+use comicstore;
+
+CREATE TABLE authors (
+  author_id int(5) NOT NULL,
+  firstname varchar(50) NOT NULL,
+  surname varchar(50) NOT NULL,
+  PRIMARY KEY (author_id)
+);
+
+CREATE TABLE books (
+  book_id int(5) NOT NULL,
+  author_id int(5) NOT NULL,
+  name varchar(50) NOT NULL,
+  publishdate date NOT NULL,
+  cover blob,
+  PRIMARY KEY (book_id,author_id)
+);
+
+INSERT INTO authors VALUES (1,'John','John');
+INSERT INTO authors VALUES (2,'John2','John2');
+
+INSERT INTO books VALUES (1,1,'WOT','1999-12-01',NULL);
+INSERT INTO books VALUES (2,2,'WOT2','1999-12-01',NULL);
+
+
